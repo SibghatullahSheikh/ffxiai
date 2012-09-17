@@ -87,6 +87,7 @@
   <ItemGroup>
     <Compile Include="Processes.cs" />
     <Compile Include="FFXI_Interface.cs" />
+    <Compile Include="SamplePlugin.cs" />
     <Compile Include="States.cs" />
     <Compile Include="logwindow.xaml.cs">
       <DependentUpon>logwindow.xaml</DependentUpon>
@@ -117,7 +118,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Project1\FFXIAI.Plugins.Interfaces.csproj">
+    <ProjectReference Include="..\FFXIAI.Plugins.Interfaces\FFXIAI.Plugins.Interfaces.csproj">
       <Project>{9A888F67-B3FD-4961-8DCF-ABEE213A87E3}</Project>
       <Name>FFXIAI.Plugins.Interfaces</Name>
     </ProjectReference>

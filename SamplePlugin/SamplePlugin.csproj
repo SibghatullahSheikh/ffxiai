@@ -44,7 +44,7 @@
     <Compile Include="SamplePlugin.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Project1\FFXIAI.Plugins.Interfaces.csproj">
+    <ProjectReference Include="..\FFXIAI.Plugins.Interfaces\FFXIAI.Plugins.Interfaces.csproj">
       <Project>{9A888F67-B3FD-4961-8DCF-ABEE213A87E3}</Project>
       <Name>FFXIAI.Plugins.Interfaces</Name>
     </ProjectReference>

@@ -17,7 +17,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Data;
 using System.Reflection;
-using FFXIAI.Plugins.Intefaces;
+using FFXIAI.Plugins.Interfaces;
 
 namespace FFXIAI
 {

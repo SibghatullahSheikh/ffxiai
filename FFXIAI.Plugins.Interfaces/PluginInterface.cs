@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FFXIAI.Plugins.Intefaces
+namespace FFXIAI.Plugins.Interfaces
 {
     public interface IPluginInterface
     {

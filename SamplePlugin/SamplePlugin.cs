@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using FFXIAI.Plugins.Intefaces;
+using FFXIAI.Plugins.Interfaces;
 
 namespace FFXIAI
 {
