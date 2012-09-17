@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIAI", "FFXIAI\FFXIAI.csproj", "{9466719A-F5D9-4463-8A19-05F98BD646B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIAI.Plugins.Interfaces", "Project1\FFXIAI.Plugins.Interfaces.csproj", "{9A888F67-B3FD-4961-8DCF-ABEE213A87E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplePlugin", "Project2\SamplePlugin.csproj", "{45121AAC-D26E-4931-839E-77664B9735C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{9466719A-F5D9-4463-8A19-05F98BD646B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9466719A-F5D9-4463-8A19-05F98BD646B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9466719A-F5D9-4463-8A19-05F98BD646B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A888F67-B3FD-4961-8DCF-ABEE213A87E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A888F67-B3FD-4961-8DCF-ABEE213A87E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A888F67-B3FD-4961-8DCF-ABEE213A87E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A888F67-B3FD-4961-8DCF-ABEE213A87E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45121AAC-D26E-4931-839E-77664B9735C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45121AAC-D26E-4931-839E-77664B9735C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45121AAC-D26E-4931-839E-77664B9735C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45121AAC-D26E-4931-839E-77664B9735C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

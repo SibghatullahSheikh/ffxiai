@@ -85,13 +85,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ffxiai\Processes.cs" />
-    <Compile Include="ffxiai\FFXI_Interface.cs" />
-    <Compile Include="ffxiai\States.cs" />
+    <Compile Include="Processes.cs" />
+    <Compile Include="FFXI_Interface.cs" />
+    <Compile Include="States.cs" />
     <Compile Include="logwindow.xaml.cs">
       <DependentUpon>logwindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ffxiai\MemoryManager.cs" />
+    <Compile Include="MemoryManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -109,11 +109,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project1\FFXIAI.Plugins.Interfaces.csproj">
+      <Project>{9A888F67-B3FD-4961-8DCF-ABEE213A87E3}</Project>
+      <Name>FFXIAI.Plugins.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

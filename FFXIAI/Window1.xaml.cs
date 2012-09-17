@@ -10,10 +10,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+/*using System.Windows.Shapes;*/
 using System.Collections;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.IO;
+using System.Data;
+using System.Reflection;
+using FFXIAI.Plugins.Intefaces;
 
 namespace FFXIAI
 {
@@ -24,10 +28,16 @@ namespace FFXIAI
     {
         // instance of our log window
         logwindow log;
+        // our plugins
+        List<IPluginInterface> Plugins = new List<IPluginInterface>();
         public Window1()
         {
             InitializeComponent();
             show_log_window();
+            debug("FFXIAI");
+            debug("  author: framerate");
+            debug("  version: 0.0.0.1");
+            debug("  Starting...");
 
             ArrayList a = Processes.get_ffxi_processes();
             process_list_cb.Items.Clear();
@@ -49,9 +59,31 @@ namespace FFXIAI
                 debug("Attached to Process");
                 //Processes.attach_process(pid);
             }
+
+            debug(System.AppDomain.CurrentDomain.BaseDirectory);
+            //System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), @"settings/nav");
+            //system.reflection.assembly.getexecutingassembly().location
+
+            foreach (string Filename in Directory.GetFiles(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Plugins"), "*.dll"))
+            {
+                Assembly Asm = Assembly.LoadFile(Filename);
+                foreach (Type AsmType in Asm.GetTypes())
+                {
+                    if (AsmType.GetInterface("IPluginInterface") != null)
+                    {
+                        IPluginInterface Plugin = (IPluginInterface)Activator.CreateInstance(AsmType);
+                        Plugins.Add(Plugin);
+                        debug("Plugin Loaded!");
+                    }
+                }
+            }
+            if (Plugins.Count == 0)
+            {
+                debug("No plugins found!");
+            }
         }
 
-        private void debug(string s)
+        public void debug(string s)
         {
 
             this.log.debug(s);
@@ -71,7 +103,11 @@ namespace FFXIAI
 
         private void debug_button(object sender, RoutedEventArgs e)
         {
-            this.log.debug("Hello World!!!");
+            foreach (IPluginInterface Plugin in Plugins)
+            {
+                string s = Plugin.Load();
+                debug(s);
+            }
         }
     }
 }
