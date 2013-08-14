@@ -1,0 +1,8 @@
+﻿<Window x:Class="FFXIAI.logwindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="logwindow" Height="171" Width="456" FontSize="10" WindowStyle="ToolWindow">
+    <Grid>
+        <TextBox Margin="2,1,2,2" Name="log_textBox" Background="Black" Foreground="White" />
+    </Grid>
+</Window>

@@ -38,6 +38,7 @@ namespace FFXIAI
             debug("  author: framerate");
             debug("  version: 0.0.0.1");
             debug("  Starting...");
+
             ArrayList a = Processes.get_ffxi_processes();
             process_list_cb.Items.Clear();
             foreach (Process obj in a)
@@ -59,32 +60,23 @@ namespace FFXIAI
                 //Processes.attach_process(pid);
             }
 
-            
-
             debug(System.AppDomain.CurrentDomain.BaseDirectory);
             //System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), @"settings/nav");
             //system.reflection.assembly.getexecutingassembly().location
 
-            
             foreach (string Filename in Directory.GetFiles(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Plugins"), "*.dll"))
             {
                 Assembly Asm = Assembly.LoadFile(Filename);
                 foreach (Type AsmType in Asm.GetTypes())
                 {
-                   
-                    
                     if (AsmType.GetInterface("IPluginInterface") != null)
                     {
-                        
                         IPluginInterface Plugin = (IPluginInterface)Activator.CreateInstance(AsmType);
                         Plugins.Add(Plugin);
-                        debug(Plugin.Load() + " Loaded!");
-                        //debug("Plugin Loaded!");
-                       
+                        debug("Plugin Loaded!");
                     }
                 }
             }
-         
             if (Plugins.Count == 0)
             {
                 debug("No plugins found!");
