@@ -18,6 +18,7 @@ using System.IO;
 using System.Data;
 using System.Reflection;
 using FFXIAI.Plugins.Interfaces;
+using System.Timers;
 
 namespace FFXIAI
 {
@@ -28,12 +29,18 @@ namespace FFXIAI
     {
         // instance of our log window
         logwindow log;
+        private System.Timers.Timer main_loop;
+        public delegate void UpdateLogDelegate(string s);
+        private UpdateLogDelegate ul;
         // our plugins
         List<IPluginInterface> Plugins = new List<IPluginInterface>();
         public Window1()
         {
             InitializeComponent();
             show_log_window();
+
+            ul = new UpdateLogDelegate(debug);
+
             debug("FFXIAI");
             debug("  author: framerate");
             debug("  version: 0.0.0.1");
@@ -89,6 +96,25 @@ namespace FFXIAI
             {
                 debug("No plugins found!");
             }
+
+            main_loop = new System.Timers.Timer();
+            main_loop.Elapsed += new ElapsedEventHandler(test_func);
+            main_loop.Interval = 250;
+            main_loop.Enabled = true;
+            debug("main loop enabled");
+
+            
+        }
+
+        private void test_func(object source, ElapsedEventArgs e)
+        {
+            // check each plugin for game logic.
+            foreach (IPluginInterface Plugin in Plugins)
+            {
+                Plugin.Update();
+                debug(s);
+            }
+            //Dispatcher.Invoke(ul, System.Windows.Threading.DispatcherPriority.Normal, "[ main loop fired ]");
         }
 
         public void debug(string s)

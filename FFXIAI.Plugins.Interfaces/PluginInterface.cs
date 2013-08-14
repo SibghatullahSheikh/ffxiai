@@ -7,5 +7,6 @@ namespace FFXIAI.Plugins.Interfaces
     public interface IPluginInterface
     {
         string Load();
+        void Update();
     }
 }

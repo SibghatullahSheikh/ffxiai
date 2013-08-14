@@ -13,6 +13,11 @@ namespace FFXIAI
             return "Sample Plugin";
         }
 
+        public void Update()
+        {
+
+        }
+
         #endregion
     }
 }
